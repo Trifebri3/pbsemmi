@@ -57,11 +57,12 @@
                 </div>
             </div>
 
-            <a href="/program" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors">Program</a>
-            <a href="/berita" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors">Berita</a>
-            <a href="/publikasi" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors">Publikasi</a>
-            <a href="/dokumentasi" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors">Dokumentasi</a>
-            <a href="/keanggotaan" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors">Keanggotaan</a>
+            <a href="/program" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Program</a>
+            <a href="/berita" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Berita</a>
+            <a href="{{ route('opportunities.index') }}" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Peluang & Informasi</a>
+            <a href="/publikasi" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Publikasi</a>
+            <a href="/dokumentasi" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Dokumentasi</a>
+            <a href="/keanggotaan" class="text-sm/6 font-semibold text-gray-900 hover:text-semmi transition-colors whitespace-nowrap">Keanggotaan</a>
         </div>
     </nav>
 

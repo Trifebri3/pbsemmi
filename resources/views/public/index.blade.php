@@ -234,122 +234,20 @@
     </div>
 </div>
 <!-- PETA PERSEBARAN NASIONAL SECTION -->
-<div class="bg-gray-50 py-24 sm:py-32 border-b border-gray-200" x-data="networkMap()">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="bg-gray-50 py-24 sm:py-32 border-b border-gray-200">
+    <div class="mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <span class="text-sm font-bold text-semmi uppercase tracking-widest">Peta Nasional</span>
             <h2 class="mt-2 font-heading text-3xl font-bold uppercase tracking-tight text-gray-900 sm:text-4xl">Persebaran Jaringan SEMMI</h2>
-            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Pilih provinsi di bawah ini untuk melihat daftar wilayah cabang/kabupaten yang telah menjangkau seluruh pelosok Nusantara.</p>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Jelajahi peta interaktif di bawah ini untuk melihat daftar wilayah cabang/kabupaten yang telah menjangkau seluruh pelosok Nusantara.</p>
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-            <!-- Map Static Image -->
-            <div class="w-full bg-semmi/5 border-b border-gray-200 relative flex justify-center items-center p-8">
-                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
-                <img src="{{ asset('peta-indonesia.jpg') }}" alt="Peta Indonesia" class="w-full max-w-4xl h-auto object-contain relative z-10 mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity duration-500">
-            </div>
-
-            <div class="p-6 sm:p-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Provinsi Selection -->
-                    <div>
-                        <label for="provinsi" class="block text-sm font-bold uppercase text-gray-700 mb-2">Pilih Provinsi</label>
-                        <select id="provinsi" x-model="selectedProvinsi" @change="fetchKabupaten()" class="block w-full rounded-md border border-gray-300 py-3 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-1 focus:ring-semmi sm:text-sm shadow-sm transition-colors cursor-pointer bg-gray-50 hover:bg-gray-100">
-                            <option value="">-- Pilih Provinsi --</option>
-                            <template x-for="prov in provinsiList" :key="prov.id">
-                                <option :value="prov.id" x-text="prov.nama"></option>
-                            </template>
-                        </select>
-                    </div>
-
-                    <!-- Kabupaten Selection -->
-                    <div>
-                        <label for="kabupaten" class="block text-sm font-bold uppercase text-gray-700 mb-2">Daftar Kabupaten/Cabang</label>
-                        <select id="kabupaten" x-model="selectedKabupaten" :disabled="!selectedProvinsi || (kabupatenList.length === 0 && !isLoading)" class="block w-full rounded-md border border-gray-300 py-3 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-1 focus:ring-semmi sm:text-sm shadow-sm transition-colors disabled:bg-gray-100 disabled:text-gray-400 bg-gray-50 hover:bg-gray-100 cursor-pointer">
-                            <option value="" x-show="!isLoading" x-text="kabupatenList.length === 0 ? '-- Pilih Provinsi Terlebih Dahulu --' : '-- Pilih Kabupaten/Cabang --'"></option>
-                            <option value="" x-show="isLoading" disabled>Memuat Data...</option>
-                            <template x-for="kab in kabupatenList" :key="kab.id">
-                                <option :value="kab.id" x-text="kab.nama"></option>
-                            </template>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Show selected region info -->
-                <div x-show="selectedKabupaten" style="display: none;" x-transition class="mt-8 p-6 bg-semmi/5 rounded-xl border border-semmi/20">
-                    <div class="flex items-start gap-4">
-                        <div class="h-10 w-10 rounded-full bg-semmi flex items-center justify-center flex-shrink-0">
-                            <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        </div>
-                        <div>
-                            <h4 class="text-lg font-bold text-gray-900 uppercase">Cabang <span x-text="getKabupatenName()"></span></h4>
-                            <p class="text-gray-600 mt-1 font-medium">Provinsi <span x-text="getProvinsiName()"></span></p>
-                            <div class="mt-4">
-                                <a href="/kontak" class="text-sm font-bold text-semmi hover:text-semmi-dark underline underline-offset-4">Lihat Detail Kontak & Pengurus Cabang &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+            @include('public.components.interactive-map', ['height' => '700px'])
         </div>
     </div>
 </div>
 
-<script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.data('networkMap', () => ({
-            provinsiList: [],
-            kabupatenList: [],
-            selectedProvinsi: '',
-            selectedKabupaten: '',
-            isLoading: false,
-
-            init() {
-                // Fetch Data Provinsi
-                fetch('/data-indonesia/provinsi.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        this.provinsiList = data.sort((a, b) => a.nama.localeCompare(b.nama));
-                    })
-                    .catch(error => console.error('Error fetching provinsi:', error));
-            },
-
-
-            fetchKabupaten() {
-                this.selectedKabupaten = '';
-                this.kabupatenList = [];
-                
-                if (!this.selectedProvinsi) return;
-
-                this.isLoading = true;
-                fetch(`/data-indonesia/kabupaten/${this.selectedProvinsi}.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        this.kabupatenList = data.sort((a, b) => a.nama.localeCompare(b.nama));
-                        setTimeout(() => { this.isLoading = false; }, 300);
-                    })
-                    .catch(error => {
-                        console.error('Error fetching kabupaten:', error);
-                        this.isLoading = false;
-                    });
-            },
-
-            getProvinsiName() {
-                const prov = this.provinsiList.find(p => p.id === this.selectedProvinsi);
-                return prov ? prov.nama : '';
-            },
-
-            getKabupatenName() {
-                const kab = this.kabupatenList.find(k => k.id === this.selectedKabupaten);
-                return kab ? kab.nama : '';
-            }
-        }))
-    })
-</script>
 
 <!-- STATISTIK ORGANISASI SECTION -->
 <div class="bg-white py-24 sm:py-32 border-b border-gray-200">
