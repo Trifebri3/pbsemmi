@@ -5,23 +5,34 @@
 @section('content')
 
 <!-- HEADER & BREADCRUMB -->
-<div class="bg-white pt-24 pb-12 border-b border-gray-200">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h1 class="font-heading text-4xl font-bold uppercase tracking-widest text-gray-900 sm:text-5xl">Struktur Kepengurusan</h1>
-        <p class="mt-4 text-lg text-gray-600 max-w-3xl">Kenali susunan pengurus Serikat Mahasiswa Muslimin Indonesia dari tingkat pusat hingga komisariat.</p>
+<div class="relative bg-gradient-to-br from-gray-900 to-semmi-dark pt-32 pb-20 overflow-hidden shadow-2xl">
+    <!-- Decorative Shapes -->
+    <div class="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] mix-blend-overlay"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-500 rounded-full blur-[120px] opacity-20 -mr-20 -mt-20"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-semmi rounded-full blur-[100px] opacity-30 -ml-20 -mb-20"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div>
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-white mb-4 drop-shadow-md">
+                Struktur <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Organisasi</span>
+            </h1>
+            <p class="mt-2 text-lg text-semmi-light/90 max-w-2xl font-light">
+                Kenali susunan pengurus Serikat Mahasiswa Muslimin Indonesia dari tingkat pusat hingga komisariat.
+            </p>
+        </div>
         
-        <nav class="mt-8 flex" aria-label="Breadcrumb">
+        <nav class="flex bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-xl" aria-label="Breadcrumb">
             <ol role="list" class="flex items-center space-x-2 text-sm">
                 <li>
-                    <a href="/" class="text-gray-500 hover:text-semmi transition-colors">Beranda</a>
+                    <a href="/" class="text-white hover:text-yellow-300 transition-colors font-semibold">Beranda</a>
                 </li>
                 <li>
-                    <svg class="h-4 w-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="h-4 w-4 text-white/50" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.5a.75.75 0 010 1.08l-4.5 4.5a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
                     </svg>
                 </li>
                 <li>
-                    <span class="text-gray-900 font-medium" aria-current="page">Organisasi</span>
+                    <span class="text-yellow-300 font-bold tracking-wide" aria-current="page">Organisasi</span>
                 </li>
             </ol>
         </nav>
@@ -29,27 +40,29 @@
 </div>
 
 <!-- MAIN CONTENT: FILTER & PENGURUS -->
-<div class="bg-gray-50 py-16 sm:py-24">
+<div class="bg-gray-50/50 py-16 sm:py-24 selection:bg-semmi selection:text-white">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row gap-10">
             
-            <!-- Sidebar: Filters -->
+            <!-- Sidebar: Premium Filters -->
             <div class="w-full lg:w-1/4 flex-shrink-0">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
-                    <h3 class="font-heading text-lg font-bold text-semmi-dark uppercase mb-6 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-semmi" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                        </svg>
-                        Filter Struktur
+                <div class="bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-100 p-8 sticky top-24">
+                    <h3 class="font-heading text-xl font-bold text-gray-900 uppercase mb-8 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-semmi-light flex items-center justify-center text-semmi shadow-inner">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                            </svg>
+                        </span>
+                        Filter
                     </h3>
 
                     <!-- Dummy Filter Form for Frontend -->
-                    <form class="space-y-5">
+                    <form class="space-y-6">
                         
                         <!-- Filter Periode -->
                         <div>
-                            <label for="periode" class="block text-sm font-semibold text-gray-700">Periode</label>
-                            <select id="periode" name="periode" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-semmi sm:text-sm">
+                            <label for="periode" class="block text-sm font-bold text-gray-700 mb-2">Periode Kepengurusan</label>
+                            <select id="periode" name="periode" class="block w-full rounded-xl bg-gray-50 border-0 py-3 pl-4 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-semmi sm:text-sm font-medium cursor-pointer transition-all">
                                 <option>2026 - 2028</option>
                                 <option>2023 - 2025</option>
                                 <option>2020 - 2022</option>
@@ -58,8 +71,8 @@
 
                         <!-- Filter Wilayah -->
                         <div>
-                            <label for="wilayah" class="block text-sm font-semibold text-gray-700">Wilayah</label>
-                            <select id="wilayah" name="wilayah" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-semmi sm:text-sm">
+                            <label for="wilayah" class="block text-sm font-bold text-gray-700 mb-2">Wilayah</label>
+                            <select id="wilayah" name="wilayah" class="block w-full rounded-xl bg-gray-50 border-0 py-3 pl-4 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-semmi sm:text-sm font-medium cursor-pointer transition-all">
                                 <option value="">Semua Wilayah</option>
                                 <option>DKI Jakarta</option>
                                 <option>Jawa Barat</option>
@@ -69,8 +82,8 @@
 
                         <!-- Filter Cabang -->
                         <div>
-                            <label for="cabang" class="block text-sm font-semibold text-gray-700">Cabang</label>
-                            <select id="cabang" name="cabang" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-semmi sm:text-sm">
+                            <label for="cabang" class="block text-sm font-bold text-gray-700 mb-2">Cabang</label>
+                            <select id="cabang" name="cabang" class="block w-full rounded-xl bg-gray-50 border-0 py-3 pl-4 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-semmi sm:text-sm font-medium cursor-pointer transition-all">
                                 <option value="">Semua Cabang</option>
                                 <option>Jakarta Pusat</option>
                                 <option>Jakarta Selatan</option>
@@ -80,8 +93,8 @@
 
                         <!-- Filter Komisariat -->
                         <div>
-                            <label for="komisariat" class="block text-sm font-semibold text-gray-700">Komisariat</label>
-                            <select id="komisariat" name="komisariat" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-semmi sm:text-sm">
+                            <label for="komisariat" class="block text-sm font-bold text-gray-700 mb-2">Komisariat</label>
+                            <select id="komisariat" name="komisariat" class="block w-full rounded-xl bg-gray-50 border-0 py-3 pl-4 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-semmi sm:text-sm font-medium cursor-pointer transition-all">
                                 <option value="">Semua Komisariat</option>
                                 <option>Universitas Indonesia</option>
                                 <option>UIN Jakarta</option>
@@ -90,8 +103,8 @@
 
                         <!-- Filter Bidang/Divisi -->
                         <div>
-                            <label for="bidang" class="block text-sm font-semibold text-gray-700">Bidang / Divisi</label>
-                            <select id="bidang" name="bidang" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-semmi focus:outline-none focus:ring-semmi sm:text-sm">
+                            <label for="bidang" class="block text-sm font-bold text-gray-700 mb-2">Bidang / Divisi</label>
+                            <select id="bidang" name="bidang" class="block w-full rounded-xl bg-gray-50 border-0 py-3 pl-4 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-200 focus:ring-2 focus:ring-inset focus:ring-semmi sm:text-sm font-medium cursor-pointer transition-all">
                                 <option value="">Semua Bidang</option>
                                 <option>Pengurus Inti</option>
                                 <option>Organisasi</option>
@@ -100,8 +113,8 @@
                             </select>
                         </div>
 
-                        <div class="pt-4">
-                            <button type="button" class="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold uppercase tracking-wide text-white bg-semmi hover:bg-semmi-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-semmi transition-colors">
+                        <div class="pt-6 border-t border-gray-100">
+                            <button type="button" class="w-full flex justify-center items-center py-3.5 px-4 rounded-xl shadow-lg text-sm font-bold uppercase tracking-widest text-white bg-gradient-to-r from-semmi to-semmi-dark hover:from-semmi-dark hover:to-semmi focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-semmi transition-all transform hover:-translate-y-1 hover:shadow-xl">
                                 Terapkan Filter
                             </button>
                         </div>
@@ -112,10 +125,10 @@
             <!-- Content Area: Grid Pengurus -->
             <div class="w-full lg:w-3/4">
                 
-                <div class="mb-8 flex items-center justify-between border-b border-gray-200 pb-5">
-                    <h2 class="text-2xl font-bold font-heading text-semmi-dark uppercase tracking-wide">Pengurus Besar (Pusat)</h2>
-                    <span class="inline-flex items-center rounded-full bg-semmi-light px-3 py-1 text-sm font-semibold text-semmi">
-                        Menampilkan 12 Data
+                <div class="mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gray-200 pb-6">
+                    <h2 class="text-3xl font-extrabold font-heading text-gray-900 uppercase tracking-tight">Pengurus Besar (Pusat)</h2>
+                    <span class="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-sm font-bold text-semmi border border-gray-200 shadow-sm">
+                        Total 12 Pengurus
                     </span>
                 </div>
 
@@ -131,17 +144,20 @@
                     ];
                 @endphp
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                     @foreach($pengurus as $person)
                     <!-- CARD PENGURUS -->
-                    <a href="/organisasi/pengurus-pusat" class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all group block focus:outline-none focus:ring-2 focus:ring-semmi focus:ring-offset-2">
+                    <a href="/organisasi/pengurus-pusat" class="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-semmi focus:ring-offset-2 flex flex-col h-full">
                         
-                        <!-- Foto Bagian Atas -->
-                        <div class="pt-6 pb-0 flex justify-center">
-                            <div class="relative h-32 w-32 rounded-full bg-gray-100 overflow-hidden border-4 border-gray-100 group-hover:border-semmi transition-colors flex items-center justify-center">
-                                <!-- Placeholder -->
-                                <div class="absolute inset-0 bg-semmi/5 flex flex-col items-center justify-center transition-transform group-hover:scale-105">
-                                    <svg class="h-16 w-16 text-semmi/30" fill="currentColor" viewBox="0 0 24 24">
+                        <!-- Premium Header Image / Color block -->
+                        <div class="h-24 w-full bg-gradient-to-r from-semmi via-semmi-dark to-green-800 opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <!-- Avatar -->
+                        <div class="absolute top-8 left-1/2 -translate-x-1/2">
+                            <div class="relative h-28 w-28 rounded-full bg-white p-1.5 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                <div class="h-full w-full rounded-full bg-gray-50 flex items-center justify-center overflow-hidden">
+                                    <!-- Placeholder -->
+                                    <svg class="h-16 w-16 text-gray-300 transform translate-y-2" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                     </svg>
                                 </div>
@@ -149,29 +165,26 @@
                         </div>
 
                         <!-- Data Informasi -->
-                        <div class="p-5 border-t-4 border-semmi-gold">
-                            <h3 class="text-lg font-bold text-gray-900 truncate" title="{{ $person['name'] }}">{{ $person['name'] }}</h3>
-                            <p class="text-sm font-semibold text-semmi mt-1">{{ $person['jabatan'] }}</p>
+                        <div class="pt-16 pb-8 px-6 text-center flex-grow flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-extrabold text-gray-900 group-hover:text-semmi transition-colors truncate" title="{{ $person['name'] }}">{{ $person['name'] }}</h3>
+                                <p class="text-sm font-bold text-yellow-500 mt-1 uppercase tracking-wide">{{ $person['jabatan'] }}</p>
+                            </div>
                             
-                            <div class="mt-4 space-y-2">
-                                <div class="flex items-center text-xs text-gray-500">
-                                    <svg class="mr-2 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                    Wilayah: <span class="ml-1 font-medium text-gray-900">{{ $person['wilayah'] }}</span>
+                            <div class="mt-6 flex flex-col gap-2">
+                                <div class="bg-gray-50 rounded-xl p-3 flex flex-col text-sm border border-gray-100 group-hover:bg-semmi-light/30 transition-colors">
+                                    <span class="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">Wilayah & Cabang</span>
+                                    <span class="font-bold text-gray-700">{{ $person['wilayah'] }} - {{ $person['cabang'] }}</span>
                                 </div>
-                                <div class="flex items-center text-xs text-gray-500">
-                                    <svg class="mr-2 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                    </svg>
-                                    Cabang: <span class="ml-1 font-medium text-gray-900">{{ $person['cabang'] }}</span>
-                                </div>
-                                <div class="flex items-center text-xs text-gray-500">
-                                    <svg class="mr-2 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    Periode: <span class="ml-1 font-medium text-gray-900">{{ $person['periode'] }}</span>
+                                <div class="grid grid-cols-2 gap-2 text-xs">
+                                    <div class="bg-gray-50 rounded-lg py-2 px-2 border border-gray-100">
+                                        <span class="block text-gray-400 font-semibold mb-0.5">Bidang</span>
+                                        <span class="font-bold text-gray-700 truncate block">{{ $person['bidang'] }}</span>
+                                    </div>
+                                    <div class="bg-gray-50 rounded-lg py-2 px-2 border border-gray-100">
+                                        <span class="block text-gray-400 font-semibold mb-0.5">Periode</span>
+                                        <span class="font-bold text-gray-700 block">{{ $person['periode'] }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -180,20 +193,20 @@
                     @endforeach
                 </div>
 
-                <!-- Pagination Placeholder -->
-                <div class="mt-12 flex items-center justify-center">
-                    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-                        <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                <!-- Pagination Placeholder Premium -->
+                <div class="mt-14 flex items-center justify-center">
+                    <nav class="isolate inline-flex -space-x-px rounded-xl shadow-md bg-white overflow-hidden border border-gray-200" aria-label="Pagination">
+                        <a href="#" class="relative inline-flex items-center px-3 py-2 text-gray-400 hover:bg-gray-50 focus:z-20 transition-colors">
                             <span class="sr-only">Previous</span>
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                             </svg>
                         </a>
-                        <a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-semmi px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-semmi">1</a>
-                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
-                        <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
-                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
-                        <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                        <a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-semmi px-5 py-2.5 text-sm font-bold text-white focus:z-20 border-l border-r border-semmi">1</a>
+                        <a href="#" class="relative inline-flex items-center px-5 py-2.5 text-sm font-bold text-gray-700 hover:bg-gray-50 hover:text-semmi focus:z-20 transition-colors border-r border-gray-200">2</a>
+                        <a href="#" class="relative hidden items-center px-5 py-2.5 text-sm font-bold text-gray-700 hover:bg-gray-50 hover:text-semmi focus:z-20 transition-colors border-r border-gray-200 md:inline-flex">3</a>
+                        <span class="relative inline-flex items-center px-4 py-2.5 text-sm font-semibold text-gray-400 border-r border-gray-200">...</span>
+                        <a href="#" class="relative inline-flex items-center px-3 py-2 text-gray-400 hover:bg-gray-50 focus:z-20 transition-colors">
                             <span class="sr-only">Next</span>
                             <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.5a.75.75 0 010 1.08l-4.5 4.5a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
